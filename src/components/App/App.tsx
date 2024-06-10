@@ -1,5 +1,7 @@
+import Navbar from "../Navbar/Navbar";
+
 const App = (): React.ReactElement => {
-  return <p>Mark-me Project</p>;
+  return <Navbar />;
 };
 
 export default App;

@@ -1,0 +1,25 @@
+@use "../../styles/variables";
+
+.navbar-container {
+  display: block;
+  padding: variables.$web-padding;
+
+  &__icons {
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-between;
+  }
+
+  &__home-icon,
+  &__shopping-cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__divider {
+    display: flex;
+    height: 1px;
+    background-color: #c4c4c4;
+  }
+}
