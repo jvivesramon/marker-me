@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { screen } from "@testing-library/react";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+
 import Navbar from "./Navbar";
 
 describe("Given a Navbar component", () => {
@@ -7,11 +8,7 @@ describe("Given a Navbar component", () => {
     test("Then it should show a 'MarkMe logo'", () => {
       const textImage = "MarkMe logo";
 
-      render(
-        <MemoryRouter>
-          <Navbar />
-        </MemoryRouter>,
-      );
+      renderWithProviders(wrapWithRouter(<Navbar />));
 
       const expectedResult = screen.getByRole("img", { name: textImage });
 
@@ -23,11 +20,7 @@ describe("Given a Navbar component", () => {
     test("Then it should show a 'Shopping card button'", () => {
       const textImage = "Shopping card button";
 
-      render(
-        <MemoryRouter>
-          <Navbar />
-        </MemoryRouter>,
-      );
+      renderWithProviders(wrapWithRouter(<Navbar />));
 
       const expectedResult = screen.getByRole("img", { name: textImage });
 
