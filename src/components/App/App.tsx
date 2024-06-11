@@ -1,7 +1,7 @@
-import Navbar from "../Navbar/Navbar";
+import Layout from "../Layout/Layout";
 
 const App = (): React.ReactElement => {
-  return <Navbar />;
+  return <Layout />;
 };
 
 export default App;
