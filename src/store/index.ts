@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { markersReducer } from "../entities/markers/slice/markersSlice";
+import { uiReducer } from "../entities/ui/uiSlice";
 
 const rootReducer = combineReducers({
   markers: markersReducer,
+  ui: uiReducer,
 });
 
 export const setupStore = (preloadedState?: Partial<RootState>) => {
