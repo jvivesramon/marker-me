@@ -19,7 +19,7 @@ export const markersProductsMock: Product[] = [
     },
     image: {
       small: "https://ibb.co/JHtymFc",
-      big: "https://ibb.co/MPB55Tk",
+      big: "https://i.ibb.co/441ggyR/boligrafo-bic-cristal.webp",
     },
     brand: "BIC",
   },
