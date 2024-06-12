@@ -1,0 +1,22 @@
+:root {
+  --toastify-color-success: #098f3e;
+  --toastify-color-error: #cb2b2b;
+}
+
+.Toastify__toast {
+  margin-bottom: 1rem;
+}
+
+.Toastify__toast-container {
+  padding: 0;
+}
+
+.Toastify__toast-container--top-center {
+  top: 1em;
+}
+
+.Toastify__close-button {
+  align-self: center;
+  width: 48px;
+  height: 48px;
+}
