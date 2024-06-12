@@ -1,17 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { RootState, store } from "../store";
+import { RootState, setupStore, store } from "../store";
 import { PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import paths from "../routers/paths/paths";
-
-const setupStore = (preloadedState?: Partial<RootState>) => {
-  return configureStore({
-    reducer: {},
-    preloadedState,
-  });
-};
 
 export const renderWithProviders = (
   ui: React.ReactElement,
