@@ -2,7 +2,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import path from "./paths/paths";
 import App from "../components/App/App";
-import { LazyMarkLisPage } from "./lazyComponentes";
+import { LazyMarkLisPage, LazyNotFoundPage } from "./lazyComponentes";
 
 const appRouter = createBrowserRouter([
   {
@@ -18,6 +18,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense>
             <LazyMarkLisPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: path.errorPage,
+        element: (
+          <Suspense>
+            <LazyNotFoundPage />
           </Suspense>
         ),
       },
