@@ -23,6 +23,10 @@ export const wrapWithRouter = (ui: React.ReactElement) => {
       path: paths.app,
       element: ui,
     },
+    {
+      path: paths.markers,
+      element: ui,
+    },
   ];
 
   const router = createMemoryRouter(routes);

@@ -1,32 +1,33 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import MarkList from "./MarkList";
 import { initialMarkersState } from "../../entities/markers/slice/markersSlice";
 import {
   brandsMock,
   categoriesMock,
   markersProductsMock,
 } from "../../entities/markers/mocks/markersMock";
-import { RefObject, createRef } from "react";
+import MarkListPage from "./MarkListPage";
 
-describe("Given a MarkList component", () => {
+describe("Given a MarkListPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a list of marks", () => {
-      const totalMarks = 2;
-      const myRef: RefObject<HTMLDivElement> = createRef();
+    test("Then it should show a list of marks", async () => {
+      const expectedTitle = "Bolígrafos BIC";
 
-      renderWithProviders(wrapWithRouter(<MarkList myRef={myRef} />), {
+      renderWithProviders(wrapWithRouter(<MarkListPage />), {
         markers: {
           ...initialMarkersState,
           markersData: markersProductsMock,
           brands: brandsMock,
           categories: categoriesMock,
         },
+        ui: { isLoading: false, modalState: { isVisible: false } },
       });
 
-      const expectedResult = screen.getAllByRole("article");
+      const expectedResult = await screen.findByRole("heading", {
+        name: expectedTitle,
+      });
 
-      expect(expectedResult).toHaveLength(totalMarks);
+      expect(expectedResult).toBeInTheDocument();
     });
   });
 });
