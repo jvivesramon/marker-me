@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { useEffect, useMemo } from "react";
 import { useRef } from "react";
 import apiUrl from "../../utils/apiUrl/apiUrl";
-import "./markListPageStyles.scss";
+import "./MarkListPageStyles.scss";
 import AxiosMarkersService from "../../entities/markers/services/AxiosMarkersService";
 import useMarkers from "../../entities/markers/hooks/useMakers";
 import { loadMarkersActionCreator } from "../../entities/markers/slice/markersSlice";

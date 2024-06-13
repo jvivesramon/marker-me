@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./markCardStyles.scss";
+import "./MarkCardStyles.scss";
 import paths from "../../routers/paths/paths";
 import { Product } from "../../entities/markers/types";
 import Button from "../Button/Button";
