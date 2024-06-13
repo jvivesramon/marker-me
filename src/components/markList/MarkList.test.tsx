@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import MarkList from "./Patata";
+import MarkList from "./MarkList";
 import { initialMarkersState } from "../../entities/markers/slice/markersSlice";
 import {
   brandsMock,
