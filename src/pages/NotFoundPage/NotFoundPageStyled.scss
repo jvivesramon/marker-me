@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 80px;
+
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__error,
+    &__message {
+      color: $main-graphic-color;
+      font-weight: 600;
+    }
+
+    &__error {
+      font-size: 4rem;
+    }
+
+    &__message {
+      font-size: 3rem;
+    }
+  }
+
+  .home {
+    background-color: $main-graphic-color;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 48px;
+    border-radius: 7px;
+  }
+}
