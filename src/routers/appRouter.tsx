@@ -1,7 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Suspense } from "react";
 import path from "./paths/paths";
 import App from "../components/App/App";
-import { Suspense } from "react";
 import { LazyMarkLisPage } from "./lazyComponentes";
 
 const appRouter = createBrowserRouter([

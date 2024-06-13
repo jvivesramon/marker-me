@@ -18,11 +18,12 @@ export const markersProductsMock: Product[] = [
       },
     },
     image: {
-      small: "https://ibb.co/JHtymFc",
+      small: "https://i.ibb.co/KWhLbz5/boligrafo-bic-cristal.webp",
       big: "https://i.ibb.co/441ggyR/boligrafo-bic-cristal.webp",
     },
     brand: "BIC",
   },
+
   {
     id: 2,
     name: "Carioca Birello Doble Punta 12ud",
@@ -37,8 +38,8 @@ export const markersProductsMock: Product[] = [
       },
     },
     image: {
-      small: "https://ibb.co/t8pQsMv",
-      big: "https://ibb.co/kMcCt9Q",
+      small: "https://i.ibb.co/HnTBzDb/carioca-markers-lavable.webp",
+      big: "https://i.ibb.co/Fn7TF0g/carioca-markers-lavable.webp",
     },
     brand: "Carioca",
   },

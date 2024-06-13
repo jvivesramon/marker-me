@@ -19,6 +19,7 @@ const MarkCard = ({
         classname="shopping-cart"
         image={
           <img
+            className="shopping-cart--image"
             src="/images/markCard/shopping-cart.svg"
             alt="Shopping cart icon"
           />

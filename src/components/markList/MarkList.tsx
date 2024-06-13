@@ -2,11 +2,16 @@ import { useAppSelector } from "../../store";
 import MarkCard from "../MarkCard/MarkCard";
 import "./MarkListStyles.scss";
 
-const MarkList = (): React.ReactElement => {
+interface MarkListProps {
+  myRef: React.RefObject<HTMLElement>;
+}
+
+const MarkList = ({ myRef }: MarkListProps): React.ReactElement => {
   const { markersData } = useAppSelector((store) => store.markers);
 
   return (
-    <section className="mark-list">
+    <section ref={myRef} className="mark-list">
+      <span className="mark-list__divider"></span>
       <ul className="cards-list">
         {markersData.map((marker, position) => (
           <li key={position} className="cards-list__item">
