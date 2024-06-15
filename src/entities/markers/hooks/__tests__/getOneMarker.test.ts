@@ -8,43 +8,45 @@ import { wrapWithProviders } from "../../../../utils/testUtils";
 import { server } from "../../../../mocks/node";
 import { errorHandlers } from "../../../../mocks/handlers";
 
-describe("Given a getMarkers function", () => {
+describe("Given a getOneMarker function", () => {
+  const idMock = "1";
+
   describe("When it is invoked", () => {
-    test("Then it should return a list of two markers", async () => {
-      const markersList: Marker[] = markersMock;
+    test("Then it should return one marker", async () => {
+      const marker: Marker = markersMock[0];
       const markersService = new AxiosMarkersService(apiUrl);
 
       const {
         result: {
-          current: { getMarkers },
+          current: { getOneMarker },
         },
       } = renderHook(() => useMarkers(markersService), {
         wrapper: wrapWithProviders,
       });
 
-      const expectedMarkersList = await getMarkers();
+      const expectedMarkersList = await getOneMarker(idMock);
 
-      expect(expectedMarkersList).toStrictEqual(markersList);
+      expect(expectedMarkersList).toStrictEqual(marker);
     });
   });
 
   describe("When it is invoked and there is an error", () => {
-    test("Then it should throw an 'Lo sentimos, no se han podido cargar los rotuladores' error", () => {
+    test("Then it should throw an 'Lo sentimos, no se ha podido cargar el rotulador' error", () => {
       server.resetHandlers(...errorHandlers);
 
-      const expectedError =
-        "Lo sentimos, no se han podido cargar los rotuladores";
+      const expectedError = "Lo sentimos, no se ha podido cargar el rotulador";
       const markersService = new AxiosMarkersService(apiUrl);
 
       const {
         result: {
-          current: { getMarkers },
+          current: { getOneMarker },
         },
       } = renderHook(() => useMarkers(markersService), {
         wrapper: wrapWithProviders,
       });
 
-      const expectedMarkersList = getMarkers();
+      const expectedMarkersList = getOneMarker(idMock);
+
       expect(expectedMarkersList).rejects.toThrow(expectedError);
     });
   });

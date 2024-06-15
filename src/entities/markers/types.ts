@@ -9,7 +9,7 @@ export interface Image {
   big: string;
 }
 
-export interface Product {
+export interface Marker {
   id: number;
   name: string;
   shortDescription: string;
@@ -21,13 +21,13 @@ export interface Product {
   brand: string;
 }
 
-export interface Markers {
-  [brandName: string]: Product[];
+export interface Products {
+  products: Marker[];
 }
 
 export interface MarkersState {
-  markersData: Product[];
+  markersData: Marker[];
   brands: string[];
   categories: string[];
-  selectedMarker: Product;
+  selectedMarker: Marker;
 }
