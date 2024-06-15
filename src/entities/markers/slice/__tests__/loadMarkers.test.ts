@@ -2,7 +2,6 @@ import {
   brandsMock,
   categoriesMock,
   markersMock,
-  markersProductsMock,
 } from "../../mocks/markersMock";
 import { MarkersState } from "../../types";
 import {
@@ -20,7 +19,7 @@ describe("Given a loadMarkers reducer", () => {
 
       const expectedNewMarkersState: MarkersState = {
         ...currentMarkersState,
-        markersData: markersProductsMock,
+        markersData: markersMock,
         brands: brandsMock,
         categories: categoriesMock,
       };
