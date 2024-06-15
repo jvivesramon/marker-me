@@ -1,4 +1,4 @@
-import { Marker } from "../types";
+import { Marker, ShoppingCart } from "../types";
 
 export const markersMock: Marker[] = [
   {
@@ -54,5 +54,12 @@ export const categoriesMock: string[] = [
   "dibujo y arte",
   "punta doble",
 ];
+
+export const shoppingCartMarkerMock: ShoppingCart[] = [
+  { ...markersMock[0], total: 1 },
+  { ...markersMock[1], total: 2 },
+];
+
+export const emptyShoppingCartMock = {};
 
 export const brandsMock: string[] = ["BIC", "Carioca"];
