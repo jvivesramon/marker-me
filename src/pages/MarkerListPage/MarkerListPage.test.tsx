@@ -4,9 +4,9 @@ import { initialMarkersState } from "../../entities/markers/slice/markersSlice";
 import {
   brandsMock,
   categoriesMock,
-  markersProductsMock,
+  markersMock,
 } from "../../entities/markers/mocks/markersMock";
-import MarkListPage from "./MarkListPage";
+import MarkListPage from "./MarkerListPage";
 
 describe("Given a MarkListPage component", () => {
   describe("When it is rendered", () => {
@@ -16,7 +16,7 @@ describe("Given a MarkListPage component", () => {
       renderWithProviders(wrapWithRouter(<MarkListPage />), {
         markers: {
           ...initialMarkersState,
-          markersData: markersProductsMock,
+          markersData: markersMock,
           brands: brandsMock,
           categories: categoriesMock,
         },

@@ -2,13 +2,13 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { useEffect, useMemo } from "react";
 import { useRef } from "react";
 import apiUrl from "../../utils/apiUrl/apiUrl";
-import "./MarkListPageStyles.scss";
+import "./MarkerListPageStyles.scss";
 import AxiosMarkersService from "../../entities/markers/services/AxiosMarkersService";
 import useMarkers from "../../entities/markers/hooks/useMakers";
 import { loadMarkersActionCreator } from "../../entities/markers/slice/markersSlice";
 import Loading from "../../components/Loaders/Loading";
 import Button from "../../components/Button/Button";
-import MarkList from "../../components/MarkList/MarkList";
+import MarkList from "../../components/PatataList/MarkerList";
 
 const MarkListPage = (): React.ReactElement => {
   const markersClient = useMemo(() => new AxiosMarkersService(apiUrl), []);
@@ -24,14 +24,14 @@ const MarkListPage = (): React.ReactElement => {
     })();
   }, [dispatch, getMarkers]);
 
-  const scrollToMarkList = () => {
+  const scrollToMarkerList = () => {
     if (myRef.current) {
       myRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="mark-list-page">
+    <div className="marker-list-page">
       {isLoading ? (
         <Loading />
       ) : (
@@ -47,7 +47,7 @@ const MarkListPage = (): React.ReactElement => {
               <Button
                 classname="collection-button"
                 text="Ver la colección"
-                actionOnClick={scrollToMarkList}
+                actionOnClick={scrollToMarkerList}
               ></Button>
             </div>
           </div>
