@@ -1,6 +1,7 @@
-import { Markers } from "../types";
+import { Marker } from "../types";
 
 interface MarkersService {
-  getMarkers(): Promise<Markers[]>;
+  getMarkers(): Promise<Marker[]>;
+  getOneMarker(id: string): Promise<Marker>;
 }
 export default MarkersService;

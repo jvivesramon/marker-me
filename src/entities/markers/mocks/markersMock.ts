@@ -1,6 +1,6 @@
-import { Markers, Product } from "../types";
+import { Marker } from "../types";
 
-export const markersProductsMock: Product[] = [
+export const markersMock: Marker[] = [
   {
     id: 1,
     name: "Bolígrafos BIC",
@@ -45,16 +45,7 @@ export const markersProductsMock: Product[] = [
   },
 ];
 
-export const markersMock: Markers[] = [
-  {
-    BIC: [markersProductsMock[0]],
-  },
-  {
-    Carioca: [markersProductsMock[1]],
-  },
-];
-
-export const emptyMarkersMock: Markers[] = [];
+export const emptyMarkersMock: Marker[] = [];
 
 export const categoriesMock: string[] = [
   "escritura y oficina",

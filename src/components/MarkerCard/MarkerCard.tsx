@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import "./MarkCardStyles.scss";
+import "./MarkerCardStyles.scss";
 import paths from "../../routers/paths/paths";
-import { Product } from "../../entities/markers/types";
+import { Marker } from "../../entities/markers/types";
 import Button from "../Button/Button";
 
 interface MarkCardProps {
-  markProps: Product;
+  markProps: Marker;
   isLazy?: "lazy" | "eager";
 }
 
@@ -14,31 +14,31 @@ const MarkCard = ({
   isLazy,
 }: MarkCardProps): React.ReactElement => {
   return (
-    <article className="mark">
+    <article className="marker-container">
       <Button
         classname="shopping-cart"
         image={
           <img
             className="shopping-cart--image"
-            src="/images/markCard/shopping-cart.svg"
+            src="/images/markerCard/shopping-cart.svg"
             alt="Shopping cart icon"
           />
         }
       />
       <Link to={`${paths.markers}/${id}`}>
-        <div className="mark__container">
+        <div className="marker-container__info">
           <img
-            className="mark__container--image"
+            className="marker-container__info--image"
             src={image.big}
-            alt={`${name} mark`}
+            alt={`${name} marker`}
             width="286"
             height="173"
             loading={isLazy}
           />
         </div>
-        <h2 className="mark__name">{name}</h2>
-        <p className="mark__description">{shortDescription}</p>
-        <span className="mark__price">{`${price} €`}</span>
+        <h2 className="marker-container__name">{name}</h2>
+        <p className="marker-container__description">{shortDescription}</p>
+        <span className="marker-container__price">{`${price} €`}</span>
       </Link>
     </article>
   );

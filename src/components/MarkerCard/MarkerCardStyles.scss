@@ -1,11 +1,11 @@
 @use "../../styles/variables" as *;
 
-.mark {
+.marker-container {
   position: relative;
   font-family: $web-font-family;
   background-color: $main-color;
 
-  &__container {
+  &__info {
     width: 100%;
     max-width: 404px;
     margin-bottom: 20px;
@@ -45,7 +45,7 @@
 }
 
 @media (min-width: 769px) {
-  .mark {
+  .marker-container {
     &__container {
       max-width: 404px;
       height: 244px;

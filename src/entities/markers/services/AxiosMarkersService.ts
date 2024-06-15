@@ -1,15 +1,23 @@
 import axios from "axios";
-import { Markers } from "../types";
+import { Marker } from "../types";
 import MarkersService from "./types";
 
 class AxiosMarkersService implements MarkersService {
   constructor(private apiUrl: string) {}
 
-  async getMarkers(): Promise<Markers[]> {
-    const { data: brands } = await axios.get<Markers[]>(
-      `${this.apiUrl}/brands`,
+  async getMarkers(): Promise<Marker[]> {
+    const { data: products } = await axios.get<Marker[]>(
+      `${this.apiUrl}/products`,
     );
-    return brands;
+    return products;
+  }
+
+  async getOneMarker(id: string): Promise<Marker> {
+    const {
+      data: [markers],
+    } = await axios.get<Marker[]>(`${this.apiUrl}/products?id=${id}`);
+
+    return markers;
   }
 }
 
