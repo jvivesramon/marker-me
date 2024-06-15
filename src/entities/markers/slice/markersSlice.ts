@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MarkersState, Marker } from "../types";
+import { MarkersState, Marker, ShoppingCart } from "../types";
 
 export const initialMarkersState: MarkersState = {
   markersData: [],
@@ -21,6 +21,7 @@ export const initialMarkersState: MarkersState = {
       colors: {},
     },
   },
+  shoppingCart: [],
 };
 
 export const markersSlice = createSlice({
@@ -51,6 +52,13 @@ export const markersSlice = createSlice({
       ...currentMarkersState,
       selectedMarker: action.payload,
     }),
+    loadShoppingCartMarkers: (
+      currentMarkerState,
+      action: PayloadAction<ShoppingCart[]>,
+    ): MarkersState => ({
+      ...currentMarkerState,
+      shoppingCart: [...action.payload],
+    }),
     resetMarkersState: (): MarkersState => initialMarkersState,
   },
 });
@@ -59,6 +67,7 @@ export const {
   loadMarkers: loadMarkersActionCreator,
   loadMarkerById: loadMarkerByIdActionCreator,
   resetMarkersState: resetMarkersStoreActionCreator,
+  loadShoppingCartMarkers: loadShoppingCartMarkersActionCreator,
 } = markersSlice.actions;
 
 export const markersReducer = markersSlice.reducer;

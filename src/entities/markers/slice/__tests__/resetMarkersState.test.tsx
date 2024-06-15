@@ -14,6 +14,7 @@ describe("Given a resetSliceState reducer", () => {
         brands: [],
         categories: [],
         selectedMarker: markersMock[0],
+        shoppingCart: [],
       };
 
       const expectedNewEmptyState: MarkersState = {
@@ -21,6 +22,7 @@ describe("Given a resetSliceState reducer", () => {
         brands: [],
         categories: [],
         selectedMarker: initialMarkersState.selectedMarker,
+        shoppingCart: [],
       };
 
       const resetStateSlice = resetMarkersStoreActionCreator();
