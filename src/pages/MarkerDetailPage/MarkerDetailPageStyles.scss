@@ -16,8 +16,40 @@
   }
 }
 
+.back-to-page-container {
+  margin: 20px;
+  width: 100%;
+
+  button {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 60px;
+    height: 40px;
+    width: 230px;
+    align-self: flex-start;
+  }
+
+  @include mobile {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.marker-container {
+  display: flex;
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
 .detail-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
@@ -25,20 +57,26 @@
   gap: 40px;
 
   @include desktop {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
   }
 }
 
-.marker-image {
-  @include mobile {
-    width: 296px;
-    height: 302px;
-  }
+.marker-image__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @include desktop {
-    min-width: 363px;
-    min-height: 375px;
+  img {
+    @include mobile {
+      width: 296px;
+      height: 302px;
+    }
+
+    @include desktop {
+      min-width: 363px;
+      min-height: 375px;
+    }
   }
 }
 
@@ -137,7 +175,7 @@
     min-width: 280px;
     height: 52px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
 
     @include font-size(18);
 
@@ -145,4 +183,8 @@
       @include font-size(14);
     }
   }
+}
+
+.display {
+  visibility: hidden;
 }

@@ -21,6 +21,10 @@ export interface Marker {
   brand: string;
 }
 
+export interface ShoppingCart extends Marker {
+  total: number;
+}
+
 export interface Products {
   products: Marker[];
 }

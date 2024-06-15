@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import AxiosMarkersService from "../../entities/markers/services/AxiosMarkersService";
 import "./MarkerDetailPageStyles.scss";
 import apiUrl from "../../utils/apiUrl/apiUrl";
 import { useAppDispatch, useAppSelector } from "../../store";
 import useMarkers from "../../entities/markers/hooks/useMakers";
-import { useParams } from "react-router-dom";
 import {
   loadMarkerByIdActionCreator,
   resetMarkersStoreActionCreator,
@@ -15,6 +15,7 @@ import Button from "../../components/Button/Button";
 const MarkerDetailPage = (): React.ReactElement => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectColor, setSelectColor] = useState(false);
+  const navigate = useNavigate();
 
   const markersClient = useMemo(() => new AxiosMarkersService(apiUrl), []);
   const { getOneMarker } = useMarkers(markersClient);
@@ -75,54 +76,66 @@ const MarkerDetailPage = (): React.ReactElement => {
         <Loading />
       ) : (
         <>
-          <div>
-            <img
-              className="marker-image"
-              src={selectedMarker.image.big}
-              alt="marker image"
-              width={296}
-              height={302}
+          <div className="back-to-page-container">
+            <Button
+              classname=""
+              text="Volver atrás"
+              actionOnClick={() => navigate(-1)}
             />
           </div>
-          <div className="marker-info">
-            <h1 className="marker-info__name">{selectedMarker.name}</h1>
-            <h2 className="marker-info__short-description">
-              {selectedMarker.shortDescription}
-            </h2>
-            <p className="marker-info__categories">
-              {getFirstUpperCaseLetterCategories(selectedMarker.categories)}
-            </p>
-            <p className="marker-info__price">{`${selectedMarker.price}€ ud.`}</p>
-            <p className="marker-info__description">
-              {selectedMarker.description}
-            </p>
-            <p className="marker-info__select-color">Selecciona un color:</p>
-            <ul className="marker-info__colors">
-              {Object.keys(selectedMarker.stock.colors).map(
-                (color, position) => (
-                  <li
-                    className={`marker-info__colors--container ${isSelected(color) ? "marker-info__colors--selected" : ""}`}
-                    key={position}
-                  >
-                    <Button
-                      style={{
-                        backgroundColor: isValidColor(color) ? color : "black",
-                      }}
-                      classname="marker-info__colors--container-color"
-                      actionOnClick={() => changeStates(color)}
-                    />
-                  </li>
-                ),
-              )}
-            </ul>
-            <p hidden={!selectColor && true} className="marker-info__warning">
-              Porfavor, selecciona un color
-            </p>
-            <Button
-              classname="marker-info__button"
-              text="Añadir a la cesta"
-              actionOnClick={() => checkIfSelectedColor(selectedColor)}
-            />
+          <div className="marker-container">
+            <div className="marker-image__container">
+              <img
+                src={selectedMarker.image.big}
+                alt="marker image"
+                width={296}
+                height={302}
+              />
+            </div>
+            <div className="marker-info">
+              <h1 className="marker-info__name">{selectedMarker.name}</h1>
+              <h2 className="marker-info__short-description">
+                {selectedMarker.shortDescription}
+              </h2>
+              <p className="marker-info__categories">
+                {getFirstUpperCaseLetterCategories(selectedMarker.categories)}
+              </p>
+              <p className="marker-info__price">{`${selectedMarker.price}€ ud.`}</p>
+              <p className="marker-info__description">
+                {selectedMarker.description}
+              </p>
+              <p className="marker-info__select-color">Selecciona un color:</p>
+              <ul className="marker-info__colors">
+                {Object.keys(selectedMarker.stock.colors).map(
+                  (color, position) => (
+                    <li
+                      className={`marker-info__colors--container ${isSelected(color) ? "marker-info__colors--selected" : ""}`}
+                      key={position}
+                    >
+                      <Button
+                        style={{
+                          backgroundColor: isValidColor(color)
+                            ? color
+                            : "black",
+                        }}
+                        classname="marker-info__colors--container-color"
+                        actionOnClick={() => changeStates(color)}
+                      />
+                    </li>
+                  ),
+                )}
+              </ul>
+              <p
+                className={`marker-info__warning ${!selectColor ? "display" : ""}`}
+              >
+                Porfavor, selecciona un color
+              </p>
+              <Button
+                classname="marker-info__button"
+                text="Añadir a la cesta"
+                actionOnClick={() => checkIfSelectedColor(selectedColor)}
+              />
+            </div>
           </div>
         </>
       )}
