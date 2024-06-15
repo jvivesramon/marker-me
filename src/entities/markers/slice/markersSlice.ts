@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Markers, MarkersState } from "../types";
+import { MarkersState, Marker } from "../types";
 
 export const initialMarkersState: MarkersState = {
   markersData: [],
@@ -29,21 +29,14 @@ export const markersSlice = createSlice({
   reducers: {
     loadMarkers: (
       currentMarkersState,
-      action: PayloadAction<Markers[]>,
+      action: PayloadAction<Marker[]>,
     ): MarkersState => ({
       ...currentMarkersState,
-      brands: [...action.payload.map((brand) => Object.keys(brand)).flat()],
-      markersData: [
-        ...action.payload.flatMap((brand) =>
-          Object.values(brand).flatMap((products) => products),
-        ),
-      ],
+      brands: [...action.payload.flatMap((marker) => marker.brand)],
+      markersData: [...action.payload],
       categories: [
         ...action.payload
-          .flatMap((brand) =>
-            Object.values(brand).flatMap((products) => products),
-          )
-          .flatMap((product) => product.categories)
+          .flatMap((marker) => marker.categories)
           .reduce(
             (acc: string[], category: string) =>
               acc.includes(category) ? acc : [...acc, category],
@@ -51,12 +44,20 @@ export const markersSlice = createSlice({
           ),
       ],
     }),
+    loadMarkerById: (
+      currentMarkersState,
+      action: PayloadAction<Marker>,
+    ): MarkersState => ({
+      ...currentMarkersState,
+      selectedMarker: action.payload,
+    }),
     resetMarkersState: (): MarkersState => initialMarkersState,
   },
 });
 
 export const {
   loadMarkers: loadMarkersActionCreator,
+  loadMarkerById: loadMarkerByIdActionCreator,
   resetMarkersState: resetMarkersStoreActionCreator,
 } = markersSlice.actions;
 
