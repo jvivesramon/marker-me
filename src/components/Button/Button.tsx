@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 interface ButtonProps {
   text?: string;
   image?: React.ReactElement;
@@ -7,6 +9,7 @@ interface ButtonProps {
   children?: React.ReactElement;
   title?: string;
   ariaLabel?: string;
+  style?: CSSProperties;
 }
 
 const Button = ({
@@ -18,6 +21,7 @@ const Button = ({
   title,
   ariaLabel,
   children,
+  style,
 }: ButtonProps): React.ReactElement => {
   return (
     <button
@@ -26,6 +30,7 @@ const Button = ({
       aria-label={ariaLabel}
       onClick={actionOnClick}
       disabled={disabled}
+      style={style}
     >
       {text}
       {image}

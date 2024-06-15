@@ -1,0 +1,148 @@
+@use "../../styles/variables" as *;
+
+@mixin font-size($size) {
+  font-size: calc($size / 16) * 1rem;
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  gap: 40px;
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.marker-image {
+  @include mobile {
+    width: 296px;
+    height: 302px;
+  }
+
+  @include desktop {
+    min-width: 363px;
+    min-height: 375px;
+  }
+}
+
+.marker-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+
+  &__name {
+    @include font-size(30);
+    color: $color-titles;
+    font-weight: $font-weight-bold;
+
+    @include mobile {
+      @include font-size(28);
+    }
+  }
+
+  &__short-description {
+    @include font-size(18);
+    color: $color-info;
+    font-weight: $font-weight-normal;
+
+    @include mobile {
+      @include font-size(16);
+    }
+  }
+
+  &__categories {
+    @include font-size(16);
+    color: $color-info;
+    font-weight: $font-weight-normal;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  &__price {
+    @include font-size(20);
+    color: $color-titles;
+
+    @include mobile {
+      @include font-size(16);
+    }
+  }
+
+  &__description,
+  &__select-color {
+    @include font-size(17);
+    color: $color-info;
+    font-weight: $font-weight-normal;
+
+    @include mobile {
+      @include font-size(16);
+    }
+  }
+
+  &__colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+    }
+
+    &--container-color {
+      width: 35px;
+      height: 35px;
+    }
+
+    &--selected {
+      border: 3px solid black;
+    }
+  }
+
+  &__warning {
+    color: red;
+    font-size: 12px;
+  }
+
+  &__button {
+    background-color: $color-titles;
+    color: $color-details;
+    font-weight: $font-weight-bold;
+    padding: 0.5rem 1rem;
+    min-width: 280px;
+    height: 52px;
+    border-radius: 5px;
+    margin-top: 20px;
+
+    @include font-size(18);
+
+    @include mobile {
+      @include font-size(14);
+    }
+  }
+}
