@@ -8,7 +8,7 @@ import useMarkers from "../../entities/markers/hooks/useMakers";
 import { loadMarkersActionCreator } from "../../entities/markers/slice/markersSlice";
 import Loading from "../../components/Loaders/Loading";
 import Button from "../../components/Button/Button";
-import MarkList from "../../components/PatataList/MarkerList";
+import MarkList from "../../components/MarkerList/MarkerList";
 
 const MarkListPage = (): React.ReactElement => {
   const markersClient = useMemo(() => new AxiosMarkersService(apiUrl), []);
