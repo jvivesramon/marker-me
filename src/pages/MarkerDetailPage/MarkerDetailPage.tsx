@@ -116,7 +116,7 @@ const MarkerDetailPage = (): React.ReactElement => {
               )}
             </ul>
             <p hidden={!selectColor && true} className="marker-info__warning">
-              Please, select a color
+              Porfavor, selecciona un color
             </p>
             <Button
               classname="marker-info__button"
