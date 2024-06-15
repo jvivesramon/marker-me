@@ -34,4 +34,5 @@ export interface MarkersState {
   brands: string[];
   categories: string[];
   selectedMarker: Marker;
+  shoppingCart: ShoppingCart[];
 }
