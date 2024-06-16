@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# Mark Me
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+`Mark Me` es una aplicación web de ecommerce de rotuladores desarrollada con React, Redux y Vite. Permite a los usuarios navegar y comprar una variedad de rotuladores. La aplicación se alimenta de una API REST de rotuladores montada con json-server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos
 
-## Expanding the ESLint configuration
+Asegúrate de tener instalados los siguientes programas:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Node.js](https://nodejs.org/) (versión 20 o superior)
+- [npm](https://www.npmjs.com/) (viene con Node.js)
 
-- Configure the top-level `parserOptions` property like this:
+## Instalación
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Sigue estos pasos para instalar y ejecutar el proyecto localmente:
+
+1. **Clona el repositorio:**
+
+```sh
+git clone https://github.com/jvivesramon/marker-me.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Instala las dependencias:**
+
+```sh
+npm install
+```
+
+## Scripts Disponibles
+
+En el directorio del proyecto, puedes ejecutar los siguientes comandos:
+
+### `npm run dev`
+
+Ejecuta la aplicación en modo desarrollo.
+Abre [http://localhost:5173](http://localhost:5173) para verlo en tu navegador.
+La página se recargará si realizas modificaciones en el código.
+
+### `npm run build`
+
+Construye la aplicación para producción en la carpeta `dist`.
+
+### `npm run lint`
+
+Ejecuta ESLint para analizar el código en busca de errores de sintaxis y problemas de estilo.
+
+### `npm run preview`
+
+Sirve el build de producción localmente para verificar que todo funciona correctamente.
+
+### `npm run prepare`
+
+Configura Husky para los hooks de git.
+
+### `npm run test`
+
+Ejecuta las pruebas utilizando Vitest.
