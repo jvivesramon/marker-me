@@ -30,7 +30,7 @@ class AxiosMarkersService implements MarkersService {
   async AddMarkerToShoppingCart(marker: ShoppingCart): Promise<ShoppingCart> {
     const { data: shoppingCart } = await axios.post<ShoppingCart>(
       `${this.apiUrl}/shopping-cart`,
-      { body: marker },
+      marker,
     );
     return shoppingCart;
   }
@@ -41,7 +41,7 @@ class AxiosMarkersService implements MarkersService {
   ): Promise<ShoppingCart> {
     const { data: shoppingCart } = await axios.put<ShoppingCart>(
       `${this.apiUrl}/shopping-cart/${id}`,
-      { body: marker },
+      marker,
     );
     return shoppingCart;
   }

@@ -9,7 +9,7 @@ import { server } from "../../../../mocks/node";
 import { errorHandlers } from "../../../../mocks/handlers";
 
 describe("Given a getOneMarker function", () => {
-  const idMock = "1";
+  const idMock = "0";
 
   describe("When it is invoked", () => {
     test("Then it should return one marker", async () => {

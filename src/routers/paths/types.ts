@@ -3,6 +3,7 @@ interface PathStructure {
   markers: string;
   detail: string;
   errorPage: string;
+  shoppingCart: string;
 }
 
 export default PathStructure;

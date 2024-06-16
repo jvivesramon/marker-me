@@ -5,6 +5,7 @@ const paths: PathStructure = {
   markers: "/markers",
   detail: "/:id",
   errorPage: "*",
+  shoppingCart: "/shopping-cart",
 };
 
 export default paths;

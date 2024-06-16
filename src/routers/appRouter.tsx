@@ -6,6 +6,7 @@ import {
   LazyMarkDetailPage,
   LazyMarkLisPage,
   LazyNotFoundPage,
+  LazyShoppingCartPage,
 } from "./lazyComponentes";
 
 const appRouter = createBrowserRouter([
@@ -30,6 +31,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense>
             <LazyMarkDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: path.shoppingCart,
+        element: (
+          <Suspense>
+            <LazyShoppingCartPage />
           </Suspense>
         ),
       },

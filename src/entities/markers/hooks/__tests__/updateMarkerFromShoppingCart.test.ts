@@ -10,7 +10,7 @@ import { errorHandlers } from "../../../../mocks/handlers";
 
 describe("Given an updateMarkerFromShoppingCart function", () => {
   const marker: ShoppingCart = shoppingCartMarkerMock[0];
-  const idMock = "1";
+  const idMock = "0";
 
   describe("When it is invoked", () => {
     test("Then it should return one marker", async () => {

@@ -1,10 +1,11 @@
-@use "../../styles/variables";
+@use "../../styles/variables" as *;
 
 .navbar-container {
   display: block;
-  padding: variables.$web-padding;
+  padding: $web-padding;
 
   &__icons {
+    position: relative;
     display: flex;
     padding-bottom: 20px;
     justify-content: space-between;
@@ -22,4 +23,21 @@
     height: 1px;
     background-color: #c4c4c4;
   }
+}
+
+.shopping-cart-total {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 20px;
+  height: 19px;
+  color: white;
+  background-color: $color-info;
+  font-size: 0.9rem;
+}
+
+.display {
+  visibility: hidden;
 }

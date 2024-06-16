@@ -84,7 +84,7 @@ const useMarkers = (markersService: MarkersService) => {
         dispatch(hideLoadingActionCreator());
 
         const error =
-          "Lo sentimos, no se ha podido añadir el rotulador a la cetsa de la compra";
+          "Lo sentimos, no se ha podido añadir el rotulador a la cesta de la compra";
         showToast(error, "error");
 
         throw error;
