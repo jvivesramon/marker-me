@@ -12,6 +12,10 @@ export const LazyShoppingCartPage = lazy(
   () => import("../pages/ShoppingCartPage/ShoppingCartPage"),
 );
 
+export const LazyPaymentLoadingPage = lazy(
+  () => import("../components/Loaders/PaymentLoading/PaymentLoading"),
+);
+
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage"),
 );

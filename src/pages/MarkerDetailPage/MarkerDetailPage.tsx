@@ -9,7 +9,7 @@ import {
   loadMarkerByIdActionCreator,
   loadShoppingCartMarkersActionCreator,
 } from "../../entities/markers/slice/markersSlice";
-import Loading from "../../components/Loaders/Loading";
+import Loading from "../../components/Loaders/Loading/Loading";
 import Button from "../../components/Button/Button";
 import { ShoppingCart } from "../../entities/markers/types";
 import showToast from "../../toast/showToast";

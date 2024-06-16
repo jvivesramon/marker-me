@@ -6,7 +6,7 @@ import "./MarkerListPageStyles.scss";
 import AxiosMarkersService from "../../entities/markers/services/AxiosMarkersService";
 import useMarkers from "../../entities/markers/hooks/useMakers";
 import { loadMarkersActionCreator } from "../../entities/markers/slice/markersSlice";
-import Loading from "../../components/Loaders/Loading";
+import Loading from "../../components/Loaders/Loading/Loading";
 import Button from "../../components/Button/Button";
 import MarkList from "../../components/MarkerList/MarkerList";
 

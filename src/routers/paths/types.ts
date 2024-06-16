@@ -4,6 +4,7 @@ interface PathStructure {
   detail: string;
   errorPage: string;
   shoppingCart: string;
+  payment: string;
 }
 
 export default PathStructure;
