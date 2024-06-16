@@ -7,7 +7,7 @@ import { server } from "../../../../mocks/node";
 import { errorHandlers } from "../../../../mocks/handlers";
 
 describe("Given a deleteMarkerFromShoppingCart function", () => {
-  const idMock = "1";
+  const idMock = "0";
 
   describe("When it is invoked", () => {
     test("Then it should return an empty list", async () => {

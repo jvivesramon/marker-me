@@ -15,21 +15,21 @@ const MarkCard = ({
 }: MarkCardProps): React.ReactElement => {
   return (
     <article className="marker-container">
-      <Button
-        classname="shopping-cart"
-        image={
-          <img
-            className="shopping-cart--image"
-            src="/images/markerCard/shopping-cart.svg"
-            alt="Shopping cart icon"
-          />
-        }
-      />
       <Link to={`${paths.markers}/${id}`}>
+        <Button
+          classname="shopping-cart"
+          image={
+            <img
+              className="shopping-cart--image"
+              src="/images/markerCard/shopping-cart.svg"
+              alt="Shopping cart icon"
+            />
+          }
+        />
         <div className="marker-container__info">
           <img
             className="marker-container__info--image"
-            src={image.big}
+            src={image.small}
             alt={`${name} marker`}
             width="286"
             height="173"

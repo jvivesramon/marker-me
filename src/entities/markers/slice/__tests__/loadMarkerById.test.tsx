@@ -14,12 +14,14 @@ describe("Given a loadMarkerById reducer", () => {
         brands: [],
         categories: [],
         selectedMarker: initialMarkersState.selectedMarker,
+        shoppingCart: [],
       };
       const expectedNewMarkersState: MarkersState = {
         markersData: emptyMarkersMock,
         brands: [],
         categories: [],
         selectedMarker: markersMock[0],
+        shoppingCart: [],
       };
 
       const loadMarkerById = loadMarkerByIdActionCreator(markersMock[0]);
