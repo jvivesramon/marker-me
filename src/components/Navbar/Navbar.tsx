@@ -28,6 +28,17 @@ const Navbar = (): React.ReactElement => {
   const isEmpty = (shoppingCartList: ShoppingCart[]) =>
     !shoppingCartList.length;
 
+  const getTotalItemsFromShoppingCart = (shoppingCart: ShoppingCart[]) => {
+    let totalItems = 0;
+
+    shoppingCart.forEach((item) => {
+      const colorStock = Object.keys(item.stock.colors).length;
+      totalItems += colorStock;
+    });
+
+    return totalItems;
+  };
+
   return (
     <nav className="navbar-container">
       <div className="navbar-container__icons">
@@ -52,7 +63,7 @@ const Navbar = (): React.ReactElement => {
           <div
             className={`shopping-cart-total ${isEmpty(shoppingCart) && "display"}`}
           >
-            {shoppingCart.length}
+            {getTotalItemsFromShoppingCart(shoppingCart)}
           </div>
         </Link>
       </div>
