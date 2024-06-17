@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./MarkerCardStyles.scss";
 import paths from "../../routers/paths/paths";
 import { Marker } from "../../entities/markers/types";
@@ -13,19 +13,22 @@ const MarkCard = ({
   markProps: { shortDescription, name, price, image, id },
   isLazy,
 }: MarkCardProps): React.ReactElement => {
+  const navigate = useNavigate();
+
   return (
     <article className="marker-container">
+      <Button
+        classname="shopping-cart"
+        image={
+          <img
+            className="shopping-cart--image"
+            src="/images/markerCard/shopping-cart.svg"
+            alt="Shopping cart icon"
+          />
+        }
+        actionOnClick={() => navigate(`${paths.markers}/${id}`)}
+      />
       <Link to={`${paths.markers}/${id}`}>
-        <Button
-          classname="shopping-cart"
-          image={
-            <img
-              className="shopping-cart--image"
-              src="/images/markerCard/shopping-cart.svg"
-              alt="Shopping cart icon"
-            />
-          }
-        />
         <div className="marker-container__info">
           <img
             className="marker-container__info--image"
